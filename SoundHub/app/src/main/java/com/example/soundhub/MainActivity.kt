@@ -1,33 +1,36 @@
 package com.example.soundhub
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.EditText
-import android.widget.ListView
+import com.example.soundhub.R.id.search_button
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_search.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button = findViewById<Button>(R.id.AddList)
-        button.setOnClickListener {
-            val editText = findViewById<EditText>(R.id.editPlaylistName)
-            insertText(this, editText.text.toString())
-            show()
+        val button1 = findViewById<Button>(R.id.search_button)
+        val button2 = findViewById<Button>(R.id.edit_button)
+        button1.setOnClickListener {
+
+
+            // ここで画面遷移を行う
+            val intent = Intent(this, SearchActivity::class.java)
+
+            startActivity(intent)
         }
-        show()
-    }
 
-    private fun show() {
-        val texts = queryTexts(this)
-        val listView = findViewById<ListView>(R.id.listView)
-        listView.adapter = ArrayAdapter<String>(this,
-            R.layout.list_text_row, R.id.textView, texts
-        )
-    }
+        button2.setOnClickListener {
 
+            // ここで画面遷移を行う
+            val intent2 = Intent(this, EditActivity::class.java)
+
+            startActivity(intent2)
+        }
+
+    }
 }
