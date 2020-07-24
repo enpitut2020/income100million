@@ -3,10 +3,7 @@ package com.example.soundhub
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ListView
+import android.widget.*
 
 class EditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +22,8 @@ class EditActivity : AppCompatActivity() {
         val listI = findViewById<ListView>(R.id.listView)
         listI.setOnItemClickListener { parent, view, position, id ->
             val intent = Intent(this, listItem::class.java)
-            intent.putExtra("position", position.toInt())
+            val item = parent.getItemAtPosition(position).toString()
+            intent.putExtra("position", item)
             startActivity(intent)
         }
 
