@@ -7,20 +7,25 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/AddList"
+        android:id="@+id/search_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
-        tools:layout_editor_absoluteX="274dp"
-        tools:layout_editor_absoluteY="54dp" />
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="48dp"
+        android:text="検索する"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editPlaylistName"
+    <Button
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Enter Your Playlist Name"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="57dp" />
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:text="作成する"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBaseline_toBaselineOf="@+id/search_button"
+        app:layout_constraintStart_toEndOf="@+id/search_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
