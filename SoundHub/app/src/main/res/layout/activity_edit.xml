@@ -47,22 +47,10 @@
                 app:layout_constraintTop_toTopOf="parent"/>
         </LinearLayout>
 
-        <ScrollView
+        <ListView
+            android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
-
-
-                <ListView
-                    android:id="@+id/listView"
-                    android:layout_width="match_parent"
-                    android:layout_height="686dp" />
-            </LinearLayout>
-        </ScrollView>
+            android:layout_height="686dp" />
 
     </LinearLayout>
 
