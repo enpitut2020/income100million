@@ -1,5 +1,6 @@
 package com.example.soundhub
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -12,12 +13,22 @@ class EditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
 
+        //作成ボタンを押してリストの項目を作成する
         val button = findViewById<Button>(R.id.AddList)
         button.setOnClickListener {
             val editText = findViewById<EditText>(R.id.editPlaylistName)
             insertText(this, editText.text.toString())
             show()
         }
+
+        //リストのアイテムがタップされたとき画面推移処理する
+        val listI = findViewById<ListView>(R.id.listView)
+        listI.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(this, listItem::class.java)
+            intent.putExtra("position", position.toInt())
+            startActivity(intent)
+        }
+
         show()
     }
 
