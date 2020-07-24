@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import android.widget.TextView
 
 class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +14,7 @@ class SearchActivity : AppCompatActivity() {
         //リストのアイテムがタップされたとき画面推移処理する
         val listI = findViewById<ListView>(R.id.listView_s)
         listI.setOnItemClickListener { parent, view, position, id ->
-            val intent = Intent(this, listItem::class.java)
+            val intent = Intent(this, ListItem::class.java)
             val item = parent.getItemAtPosition(position).toString()
             intent.putExtra("position", item)
             startActivity(intent)
