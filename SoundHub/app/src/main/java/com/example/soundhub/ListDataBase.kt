@@ -53,3 +53,21 @@ fun insertText(context: Context, text: String) {
         db.insert("texts", null, record)
     }
 }
+
+fun searchTexts(context: Context, sText: String) : List<String> {
+    val database = ListDataBase(context).readableDatabase
+    val cursor = database.query(
+        "texts", null, "text like '%${sText}%'", null, null, null, "created_at DESC"
+    )
+    val texts = mutableListOf<String>()
+
+    cursor.use {
+        while(cursor.moveToNext()) {
+            val text = cursor.getString(cursor.getColumnIndex("text"))
+            texts.add(text)
+        }
+    }
+
+    database.close()
+    return texts
+}
