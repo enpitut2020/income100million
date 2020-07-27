@@ -24,6 +24,7 @@ class EditActivity : AppCompatActivity() {
             val intent = Intent(this, EditPlayList::class.java)
             val item = parent.getItemAtPosition(position).toString()
             intent.putExtra("position", item)
+            intent.putExtra("itemId", id)
             startActivity(intent)
         }
 
