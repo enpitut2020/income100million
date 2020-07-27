@@ -30,6 +30,6 @@ class EditPlayList : AppCompatActivity() {
             startActivity(intent)
         }
 
-        
+
     }
 }
