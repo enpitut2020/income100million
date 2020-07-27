@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.*
 
 class SearchActivity : AppCompatActivity() {
-    private var searchT = "a"
+    private var searchT = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
