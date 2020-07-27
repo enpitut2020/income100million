@@ -97,3 +97,29 @@ fun editPlayListTags(context: Context, tag1: String, tag2: String, tag3: String,
     }
 }
 
+//レコードからタグ名を取得する
+fun getTags(context: Context, titleName: String) : List<String> {
+    val database = ListDataBase(context).readableDatabase
+    val cursor = database.query(
+        "texts", null, "text like '${titleName}'", null, null, null, "created_at DESC"
+    )
+
+    val texts = mutableListOf<String>()
+
+    cursor.use {
+
+            val text1 = cursor.getString(cursor.getColumnIndex("tag1"))
+            texts.add(text1)
+            val text2 = cursor.getString(cursor.getColumnIndex("tag2"))
+            texts.add(text2)
+            val text3 = cursor.getString(cursor.getColumnIndex("tag3"))
+            texts.add(text3)
+            val text4 = cursor.getString(cursor.getColumnIndex("tag4"))
+            texts.add(text4)
+            val text5 = cursor.getString(cursor.getColumnIndex("tag5"))
+            texts.add(text5)
+    }
+
+    database.close()
+    return texts
+}
