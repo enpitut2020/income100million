@@ -15,11 +15,11 @@ class ListDataBase(context: Context) :
         db?.execSQL("CREATE TABLE texts (" +
                 "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 " text TEXT NOT NULL, " +
-                " tag1 TEXT NOT NULL, " +
-                " tag2 TEXT NOT NULL, " +
-                " tag3 TEXT NOT NULL, " +
-                " tag4 TEXT NOT NULL, " +
-                " tag5 TEXT NOT NULL, " +
+                " tag1 TEXT DEFAULT 'hoge', " +
+                " tag2 TEXT DEFAULT 'a', " +
+                " tag3 TEXT DEFAULT 'a', " +
+                " tag4 TEXT DEFAULT 'a', " +
+                " tag5 TEXT DEFAULT 'a', " +
                 " created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)")
     }
 
@@ -55,11 +55,6 @@ fun insertText(context: Context, text: String) {
     database.use { db->
         val record = ContentValues().apply {
             put("text", text)
-            put("tag1", " ")
-            put("tag2", " ")
-            put("tag3", " ")
-            put("tag4", " ")
-            put("tag5", " ")
         }
 
         db.insert("texts", null, record)
@@ -85,8 +80,8 @@ fun searchTexts(context: Context, sText: String) : List<String> {
     return texts
 }
 
-//レコードにプレイリスト名を挿入する
-fun editPlayListTags(context: Context, tag1: String, tag2: String, tag3: String, tag4: String, tag5: String) {
+//レコードにタグを挿入、保存する
+fun editPlayListTags(context: Context, tag1: String, tag2: String, tag3: String, tag4: String, tag5: String, titleName: String) {
     val database = ListDataBase(context).writableDatabase
 
     database.use { db->
@@ -98,6 +93,7 @@ fun editPlayListTags(context: Context, tag1: String, tag2: String, tag3: String,
             put("tag5", tag5)
         }
 
-        //db.update("texts", update, "text == ")
+        db.update("texts", update, "text like ?", arrayOf(titleName))
     }
 }
+
