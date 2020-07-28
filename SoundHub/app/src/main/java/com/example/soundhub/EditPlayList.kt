@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_edit_play_list.*
@@ -19,7 +20,9 @@ class EditPlayList : AppCompatActivity() {
     private val TAG5_KEY = "tag5"
     private val MUSIC_KEY = "music"
 
-    private val mDocRef = FirebaseFirestore.getInstance().document("playLists/playListTag")
+    private val TAG = "DocSnippets"
+
+    private val mDocRef = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,22 +51,25 @@ class EditPlayList : AppCompatActivity() {
             return
         }
 
-        val saveMap = hashMapOf(
-            TITLE_KEY to titleView,
-            TAG1_KEY to tag1View,
-            TAG2_KEY to tag2View,
-            TAG3_KEY to tag3View,
-            TAG4_KEY to tag4View,
-            TAG5_KEY to tag5View
+        val saveMap = DataItems(
+            titleView,
+            tag1View,
+            tag2View,
+            tag3View,
+            tag4View,
+            tag5View
         )
 
-        mDocRef.collection("playLists").document("playListsTag")
-            .set(saveMap)
-            .addOnSuccessListener {
-                Log.d("playListTag", "DocumentSnapshot added with ID:")
+
+        mDocRef.collection("playLists3")
+            .add(saveMap)
+            .addOnSuccessListener { documentReference ->
+                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}\"")
+                Toast.makeText(applicationContext, "保存しました", Toast.LENGTH_LONG).show()
             }
             .addOnFailureListener { e ->
-                Log.w("playListTag", "Error adding document", e)
+                Log.w(TAG, "Error adding document", e)
+                Toast.makeText(applicationContext, "保存できませんでした", Toast.LENGTH_LONG).show()
             }
 
     }
