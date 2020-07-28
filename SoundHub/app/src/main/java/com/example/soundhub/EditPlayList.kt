@@ -3,15 +3,23 @@ package com.example.soundhub
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.EditText
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_edit_play_list.*
 
 class EditPlayList : AppCompatActivity() {
-    private var tagN1 = ""
-    private var tagN2 = ""
-    private var tagN3 = ""
-    private var tagN4 = ""
-    private var tagN5 = ""
+    private val TITLE_KEY = "title"
+    private val TAG1_KEY = "tag1"
+    private val TAG2_KEY = "tag2"
+    private val TAG3_KEY = "tag3"
+    private val TAG4_KEY = "tag4"
+    private val TAG5_KEY = "tag5"
+    private val MUSIC_KEY = "music"
+
+    val mDocRef = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,16 +28,42 @@ class EditPlayList : AppCompatActivity() {
 
         //保存ボタンをタップすると、情報が保存される
         save_button.setOnClickListener {
-            tagN1 = findViewById<EditText>(R.id.tag1Name).toString()
-            tagN2 = findViewById<EditText>(R.id.tag2Name).toString()
-            tagN3 = findViewById<EditText>(R.id.tag3Name).toString()
-            tagN4 = findViewById<EditText>(R.id.tag4Name).toString()
-            tagN5 = findViewById<EditText>(R.id.tag5Name).toString()
             val intent = Intent(this, EditActivity::class.java)
-            editPlayListTags(this, tagN1, tagN2, tagN3, tagN4, tagN5, listTitleName.text.toString())
             startActivity(intent)
         }
 
+
+    }
+
+    fun saveQuote(view : View){
+        val titleView = findViewById<EditText>(R.id.listTitleName).text.toString()
+        val tag1View = findViewById<EditText>(R.id.tag1Name).text.toString()
+        val tag2View = findViewById<EditText>(R.id.tag2Name).text.toString()
+        val tag3View = findViewById<EditText>(R.id.tag3Name).text.toString()
+        val tag4View = findViewById<EditText>(R.id.tag4Name).text.toString()
+        val tag5View = findViewById<EditText>(R.id.tag5Name).text.toString()
+
+        if (titleView.isEmpty()){
+            return
+        }
+
+        val saveMap = hashMapOf(
+            TITLE_KEY to titleView,
+            TAG1_KEY to tag1View,
+            TAG2_KEY to tag2View,
+            TAG3_KEY to tag3View,
+            TAG4_KEY to tag4View,
+            TAG5_KEY to tag5View
+        )
+
+        mDocRef.collection("playLists")
+            .add(saveMap)
+            .addOnSuccessListener { documentReference ->
+                Log.d("savePlayList", "DocumentSnapshot added with ID: ${documentReference.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.w("savePlayList", "Error adding document", e)
+            }
 
     }
 }

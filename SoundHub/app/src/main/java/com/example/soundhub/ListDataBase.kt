@@ -4,7 +4,10 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import java.security.AccessControlContext
+
 
 private const val DB_NAME = "SampleDataBase"
 private const val DB_VERSION = 1
