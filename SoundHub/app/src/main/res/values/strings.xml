@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">SoundHub</string>
 
-    <!--activity_main-->
+    <!--Top App Bar-->
+    <string name="search_button">Search</string>
+
+    <!--Main Activity-->
     <string name="main_button_search">プレイリストを探す！</string>
     <string name="main_button_add">追加</string>
 </resources>
