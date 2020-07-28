@@ -4,9 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.example.soundhub.R.id.search_button
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_search.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         button2.setOnClickListener {
 
             // ここで画面遷移を行う
-            val intent2 = Intent(this, EditActivity::class.java)
+            val intent2 = Intent(this, EditPlayList::class.java)
 
             startActivity(intent2)
         }
