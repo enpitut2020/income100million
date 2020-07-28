@@ -5,20 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.EditText
+import android.widget.ListView
 import android.widget.Toast
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_edit_play_list.*
 
 class EditPlayList : AppCompatActivity() {
-    private val TITLE_KEY = "title"
-    private val TAG1_KEY = "tag1"
-    private val TAG2_KEY = "tag2"
-    private val TAG3_KEY = "tag3"
-    private val TAG4_KEY = "tag4"
-    private val TAG5_KEY = "tag5"
-    private val MUSIC_KEY = "music"
+    private val songsList = mutableListOf<String>()
 
     private val TAG = "DocSnippets"
 
@@ -37,7 +33,27 @@ class EditPlayList : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //AddListボタンで楽曲の保存
+        AddList.setOnClickListener {
+            val song = findViewById<EditText>(R.id.addSongArtist).text.toString()
+            if(song != "") saveSongs(it, song)
+            findViewById<EditText>(R.id.addSongArtist).text = null
+            show()
+        }
 
+        show()
+    }
+
+    private fun saveSongs(view: View, songName: String){
+        songsList.add(songName)
+    }
+
+    private fun show() {
+        val listView = findViewById<ListView>(R.id.songList)
+        listView.adapter = ArrayAdapter<String>(
+            this,
+            R.layout.list_text_row, R.id.textView, songsList
+        )
     }
 
     private fun saveQuote(view : View){
@@ -58,7 +74,8 @@ class EditPlayList : AppCompatActivity() {
             tag2View,
             tag3View,
             tag4View,
-            tag5View
+            tag5View,
+            songsList
         )
 
 
