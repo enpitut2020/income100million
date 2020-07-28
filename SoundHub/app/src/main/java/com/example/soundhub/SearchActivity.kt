@@ -7,11 +7,13 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.*
+import androidx.core.view.get
 import com.google.firebase.firestore.FirebaseFirestore
 
 class SearchActivity : AppCompatActivity() {
     private var searchT = ""
     private val db = FirebaseFirestore.getInstance()
+    private var playListId = mutableListOf<String>()
 
     private val TAG = "DocSnippets"
 
@@ -33,6 +35,8 @@ class SearchActivity : AppCompatActivity() {
         val listI = findViewById<ListView>(R.id.listView_s)
         listI.setOnItemClickListener { parent, view, position, id ->
             val intent = Intent(this, songsListActivity::class.java)
+            intent.putExtra("id", playListId[position])
+            intent.putExtra("title", parent.getItemAtPosition(position).toString())
             startActivity(intent)
         }
 
@@ -48,14 +52,17 @@ class SearchActivity : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { result ->
                     val listtt = mutableListOf<String>()
+                    val newSongsId = mutableListOf<String>()
                     for (document in result) {
                         val title = document.toObject(DataItems::class.java).title
+                        newSongsId.add(document.id)
                         listtt.add(title)
                     }
                     listView.adapter = ArrayAdapter<String>(
                         this,
                         R.layout.list_text_row, R.id.textView, listtt
                     )
+                    playListId = newSongsId
                 }
                 .addOnFailureListener { exception ->
                     Log.d(TAG, "Error getting documents: ", exception)
@@ -65,11 +72,13 @@ class SearchActivity : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { result ->
                     val listtt = mutableListOf<String>()
+                    val newSongsId = mutableListOf<String>()
                     for (document in result) {
                         val title = document.toObject(DataItems::class.java).title
                         val regexTitle = Regex(searchT)
                         if(regexTitle.containsMatchIn(title)) {
                             listtt.add(title)
+                            newSongsId.add(document.id)
                             continue
                         }
 
@@ -77,6 +86,7 @@ class SearchActivity : AppCompatActivity() {
                         val regexTag1 = Regex(searchT)
                         if(regexTag1.containsMatchIn(tag1)) {
                             listtt.add(title)
+                            newSongsId.add(document.id)
                             continue
                         }
 
@@ -84,6 +94,7 @@ class SearchActivity : AppCompatActivity() {
                         val regexTag2 = Regex(searchT)
                         if(regexTag2.containsMatchIn(tag2)) {
                             listtt.add(title)
+                            newSongsId.add(document.id)
                             continue
                         }
 
@@ -91,6 +102,7 @@ class SearchActivity : AppCompatActivity() {
                         val regexTag3 = Regex(searchT)
                         if(regexTag3.containsMatchIn(tag3)) {
                             listtt.add(title)
+                            newSongsId.add(document.id)
                             continue
                         }
 
@@ -98,6 +110,7 @@ class SearchActivity : AppCompatActivity() {
                         val regexTag4 = Regex(searchT)
                         if(regexTag4.containsMatchIn(tag4)) {
                             listtt.add(title)
+                            newSongsId.add(document.id)
                             continue
                         }
 
@@ -105,6 +118,7 @@ class SearchActivity : AppCompatActivity() {
                         val regexTag5 = Regex(searchT)
                         if(regexTag5.containsMatchIn(tag5)) {
                             listtt.add(title)
+                            newSongsId.add(document.id)
                             continue
                         }
 
