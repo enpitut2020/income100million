@@ -18,6 +18,7 @@
     <string name="edit_playlist_title_hint">プレイリストのタイトル</string>
     <string name="edit_playlist_tag_hint">タグを追加</string>
     <string name="edit_playlist_song_hint">楽曲のURL</string>
+    <string name="edit_playlist_tag_placeholder">どういうときに聴きたい？</string>
     <string name="edit_playlist_tag_1">タグ1</string>
     <string name="edit_playlist_tag_2">タグ2</string>
     <string name="edit_playlist_tag_3">タグ3</string>
