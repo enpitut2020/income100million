@@ -9,7 +9,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val mDocRef = FirebaseFirestore.getInstance()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

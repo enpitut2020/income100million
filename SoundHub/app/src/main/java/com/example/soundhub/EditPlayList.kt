@@ -19,7 +19,7 @@ class EditPlayList : AppCompatActivity() {
     private val TAG5_KEY = "tag5"
     private val MUSIC_KEY = "music"
 
-    val mDocRef = FirebaseFirestore.getInstance()
+    private val mDocRef = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,8 @@ class EditPlayList : AppCompatActivity() {
 
         //保存ボタンをタップすると、情報が保存される
         save_button.setOnClickListener {
-            val intent = Intent(this, EditActivity::class.java)
+            saveQuote(it)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
