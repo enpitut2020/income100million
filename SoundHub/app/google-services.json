@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "714076185745",
+    "firebase_url": "https://soundhub-3d418.firebaseio.com",
+    "project_id": "soundhub-3d418",
+    "storage_bucket": "soundhub-3d418.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714076185745:android:6cc8c5f646525703cd0b30",
+        "android_client_info": {
+          "package_name": "com.example.soundhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714076185745-rbb9t4cu7q18199d287svo913gb0191o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbCtd1ILKwDwkbGDrcQD44WZeBnuj02tA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714076185745-rbb9t4cu7q18199d287svo913gb0191o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
