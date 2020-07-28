@@ -40,7 +40,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
-                android:text="Search"
+                android:text="@string/search_button_search"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/editPlaylistName_s"
                 app:layout_constraintTop_toTopOf="parent" />
