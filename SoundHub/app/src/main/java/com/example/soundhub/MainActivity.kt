@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
 
             // ここで画面遷移を行う
             val intent = Intent(this, SearchActivity::class.java)
-            val intent2 = Intent(this, EditPlayList::class.java)
 
             startActivity(intent)
         }

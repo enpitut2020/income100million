@@ -19,7 +19,7 @@ class EditPlayList : AppCompatActivity() {
     private val TAG5_KEY = "tag5"
     private val MUSIC_KEY = "music"
 
-    val mDocRef = FirebaseFirestore.getInstance()
+    private val mDocRef = FirebaseFirestore.getInstance().document("playLists/playListTag")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,14 +28,15 @@ class EditPlayList : AppCompatActivity() {
 
         //保存ボタンをタップすると、情報が保存される
         save_button.setOnClickListener {
-            val intent = Intent(this, EditActivity::class.java)
+            saveQuote(it)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
 
     }
 
-    fun saveQuote(view : View){
+    private fun saveQuote(view : View){
         val titleView = findViewById<EditText>(R.id.listTitleName).text.toString()
         val tag1View = findViewById<EditText>(R.id.tag1Name).text.toString()
         val tag2View = findViewById<EditText>(R.id.tag2Name).text.toString()
@@ -56,13 +57,13 @@ class EditPlayList : AppCompatActivity() {
             TAG5_KEY to tag5View
         )
 
-        mDocRef.collection("playLists")
-            .add(saveMap)
-            .addOnSuccessListener { documentReference ->
-                Log.d("savePlayList", "DocumentSnapshot added with ID: ${documentReference.id}")
+        mDocRef.collection("playLists").document("playListsTag")
+            .set(saveMap)
+            .addOnSuccessListener {
+                Log.d("playListTag", "DocumentSnapshot added with ID:")
             }
             .addOnFailureListener { e ->
-                Log.w("savePlayList", "Error adding document", e)
+                Log.w("playListTag", "Error adding document", e)
             }
 
     }
