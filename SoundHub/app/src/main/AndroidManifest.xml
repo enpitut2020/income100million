@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditPlayList"></activity>
+        <activity android:name=".EditPlayList" />
         <activity android:name=".ListItem" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".EditActivity" />
