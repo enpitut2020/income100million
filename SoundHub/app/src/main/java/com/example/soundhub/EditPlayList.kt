@@ -22,7 +22,7 @@ class EditPlayList : AppCompatActivity() {
 
     private val TAG = "DocSnippets"
 
-    private val mDocRef = FirebaseFirestore.getInstance().document("playLists/26oTIQiEztDEkNmNuovC")
+    private val mDocRef = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,17 +51,17 @@ class EditPlayList : AppCompatActivity() {
             return
         }
 
-        val saveMap = hashMapOf(
-            TITLE_KEY to titleView,
-            TAG1_KEY to tag1View,
-            TAG2_KEY to tag2View,
-            TAG3_KEY to tag3View,
-            TAG4_KEY to tag4View,
-            TAG5_KEY to tag5View
+        val saveMap = DataItems(
+            titleView,
+            tag1View,
+            tag2View,
+            tag3View,
+            tag4View,
+            tag5View
         )
 
 
-        mDocRef.collection("playLists")
+        mDocRef.collection("playLists3")
             .add(saveMap)
             .addOnSuccessListener { documentReference ->
                 Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}\"")
