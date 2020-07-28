@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_list_item.*
 
 class ListItem : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_item)
         val id = intent.getStringExtra("position")
