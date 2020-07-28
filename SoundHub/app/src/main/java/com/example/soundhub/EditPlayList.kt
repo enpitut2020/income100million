@@ -25,6 +25,7 @@ class EditPlayList : AppCompatActivity() {
     private val mDocRef = FirebaseFirestore.getInstance().document("playLists/26oTIQiEztDEkNmNuovC")
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_play_list)
         //listTitleName.text = intent.getIntExtra("potition", 0).toString()

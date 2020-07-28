@@ -13,6 +13,7 @@ class SearchActivity : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance().document("playLists/savePlayList")
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
