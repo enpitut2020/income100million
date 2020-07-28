@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         button2.setOnClickListener {
 
             // ここで画面遷移を行う
-            val intent2 = Intent(this, EditActivity::class.java)
+            val intent2 = Intent(this, EditPlayList::class.java)
 
             startActivity(intent2)
         }

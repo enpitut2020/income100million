@@ -16,7 +16,7 @@ class EditPlayList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_play_list)
-        listTitleName.text = intent.getIntExtra("potition", 0).toString()
+        //listTitleName.text = intent.getIntExtra("potition", 0).toString()
 
         //保存ボタンをタップすると、情報が保存される
         save_button.setOnClickListener {

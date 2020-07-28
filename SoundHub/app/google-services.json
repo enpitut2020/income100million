@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "714076185745",
-    "firebase_url": "https://soundhub-3d418.firebaseio.com",
-    "project_id": "soundhub-3d418",
-    "storage_bucket": "soundhub-3d418.appspot.com"
+    "project_number": "531027038481",
+    "firebase_url": "https://soundhub-5f9ae.firebaseio.com",
+    "project_id": "soundhub-5f9ae",
+    "storage_bucket": "soundhub-5f9ae.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:714076185745:android:6cc8c5f646525703cd0b30",
+        "mobilesdk_app_id": "1:531027038481:android:33597d5dbbca4aa72fbcb0",
         "android_client_info": {
           "package_name": "com.example.soundhub"
         }
       },
       "oauth_client": [
         {
-          "client_id": "714076185745-rbb9t4cu7q18199d287svo913gb0191o.apps.googleusercontent.com",
+          "client_id": "531027038481-gtnq8lajtst08rgu5bnnjbd2sp9npot7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCbCtd1ILKwDwkbGDrcQD44WZeBnuj02tA"
+          "current_key": "AIzaSyD-SXIDYEGqZdXdGushoV1_nTK27G84kJA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "714076185745-rbb9t4cu7q18199d287svo913gb0191o.apps.googleusercontent.com",
+              "client_id": "531027038481-gtnq8lajtst08rgu5bnnjbd2sp9npot7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

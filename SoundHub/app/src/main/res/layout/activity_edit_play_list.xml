@@ -13,14 +13,14 @@
         >
 
 
-        <TextView
+        <EditText
             android:id="@+id/listTitleName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:text="ListTitle"
-            android:textSize="20dp"/>
+            android:textSize="20dp" />
 
         <LinearLayout
             android:id="@+id/tag1layout"
@@ -206,6 +206,22 @@
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
 
     </LinearLayout>
 
