@@ -39,6 +39,11 @@
             android:layout_marginVertical="32dp"
             android:layout_gravity="center"
             android:src="@drawable/main_logo_mainactivity" />
+
+        <ListView
+            android:id="@+id/topList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 

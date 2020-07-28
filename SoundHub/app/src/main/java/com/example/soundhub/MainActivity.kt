@@ -3,17 +3,24 @@ package com.example.soundhub
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 //import android.util.Log
 import android.widget.Button
 //import com.google.firebase.firestore.FirebaseFirestore
 //import java.util.*
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
 
     private var mToolbar: Toolbar? = null
+    private val db = FirebaseFirestore.getInstance()
+    private val TAG = "DocSnippets"
+    private var playListId = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
@@ -32,6 +39,8 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(intent2)
         }
+
+        show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -50,5 +59,29 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         return true
+    }
+
+    private fun show() {
+        val listView = findViewById<ListView>(R.id.topList)
+
+        db.collection("playLists3")
+            .get()
+            .addOnSuccessListener { result ->
+                val listtt = mutableListOf<String>()
+                val newSongsId = mutableListOf<String>()
+                for (document in result) {
+                    val title = document.toObject(DataItems::class.java).title
+                    newSongsId.add(document.id)
+                    listtt.add(title)
+                }
+                listView.adapter = ArrayAdapter<String>(
+                    this,
+                    R.layout.list_text_row, R.id.textView, listtt
+                )
+                playListId = newSongsId
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "Error getting documents: ", exception)
+            }
     }
 }
