@@ -15,6 +15,11 @@ class ListDataBase(context: Context) :
         db?.execSQL("CREATE TABLE texts (" +
                 "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 " text TEXT NOT NULL, " +
+                " tag1 TEXT DEFAULT 'hoge', " +
+                " tag2 TEXT DEFAULT 'a', " +
+                " tag3 TEXT DEFAULT 'a', " +
+                " tag4 TEXT DEFAULT 'a', " +
+                " tag5 TEXT DEFAULT 'a', " +
                 " created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)")
     }
 
@@ -24,6 +29,7 @@ class ListDataBase(context: Context) :
 
 }
 
+//レコード内を全探索
 fun queryTexts(context: Context) : List<String> {
     val database = ListDataBase(context).readableDatabase
     val cursor = database.query(
@@ -42,6 +48,7 @@ fun queryTexts(context: Context) : List<String> {
     return texts
 }
 
+//レコードにプレイリスト名を挿入する
 fun insertText(context: Context, text: String) {
     val database = ListDataBase(context).writableDatabase
 
@@ -54,6 +61,7 @@ fun insertText(context: Context, text: String) {
     }
 }
 
+//レコード内を検索する
 fun searchTexts(context: Context, sText: String) : List<String> {
     val database = ListDataBase(context).readableDatabase
     val cursor = database.query(
@@ -66,6 +74,50 @@ fun searchTexts(context: Context, sText: String) : List<String> {
             val text = cursor.getString(cursor.getColumnIndex("text"))
             texts.add(text)
         }
+    }
+
+    database.close()
+    return texts
+}
+
+//レコードにタグを挿入、保存する
+fun editPlayListTags(context: Context, tag1: String, tag2: String, tag3: String, tag4: String, tag5: String, titleName: String) {
+    val database = ListDataBase(context).writableDatabase
+
+    database.use { db->
+        val update = ContentValues().apply {
+            put("tag1", tag1)
+            put("tag2", tag2)
+            put("tag3", tag3)
+            put("tag4", tag4)
+            put("tag5", tag5)
+        }
+
+        db.update("texts", update, "text like ?", arrayOf(titleName))
+    }
+}
+
+//レコードからタグ名を取得する
+fun getTags(context: Context, titleName: String) : List<String> {
+    val database = ListDataBase(context).readableDatabase
+    val cursor = database.query(
+        "texts", null, "text like '${titleName}'", null, null, null, "created_at DESC"
+    )
+
+    val texts = mutableListOf<String>()
+
+    cursor.use {
+
+            val text1 = cursor.getString(cursor.getColumnIndex("tag1"))
+            texts.add(text1)
+            val text2 = cursor.getString(cursor.getColumnIndex("tag2"))
+            texts.add(text2)
+            val text3 = cursor.getString(cursor.getColumnIndex("tag3"))
+            texts.add(text3)
+            val text4 = cursor.getString(cursor.getColumnIndex("tag4"))
+            texts.add(text4)
+            val text5 = cursor.getString(cursor.getColumnIndex("tag5"))
+            texts.add(text5)
     }
 
     database.close()

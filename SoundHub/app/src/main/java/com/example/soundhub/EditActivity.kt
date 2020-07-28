@@ -21,7 +21,7 @@ class EditActivity : AppCompatActivity() {
         //リストのアイテムがタップされたとき画面推移処理する
         val listI = findViewById<ListView>(R.id.listView)
         listI.setOnItemClickListener { parent, view, position, id ->
-            val intent = Intent(this, ListItem::class.java)
+            val intent = Intent(this, EditPlayList::class.java)
             val item = parent.getItemAtPosition(position).toString()
             intent.putExtra("position", item)
             startActivity(intent)
