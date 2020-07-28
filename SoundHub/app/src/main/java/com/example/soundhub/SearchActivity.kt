@@ -64,13 +64,52 @@ class SearchActivity : AppCompatActivity() {
                 }
         }else{
             db.collection("playLists3")
-                .whereArrayContains("title", searchT)
                 .get()
                 .addOnSuccessListener { result ->
                     val listtt = mutableListOf<String>()
                     for (document in result) {
                         val title = document.toObject(DataItems::class.java).title
-                        listtt.add(title)
+                        val regexTitle = Regex(searchT)
+                        if(regexTitle.containsMatchIn(title)) {
+                            listtt.add(title)
+                            continue
+                        }
+
+                        val tag1 = document.toObject(DataItems::class.java).tag1
+                        val regexTag1 = Regex(searchT)
+                        if(regexTag1.containsMatchIn(tag1)) {
+                            listtt.add(title)
+                            continue
+                        }
+
+                        val tag2 = document.toObject(DataItems::class.java).tag2
+                        val regexTag2 = Regex(searchT)
+                        if(regexTag2.containsMatchIn(tag2)) {
+                            listtt.add(title)
+                            continue
+                        }
+
+                        val tag3 = document.toObject(DataItems::class.java).tag3
+                        val regexTag3 = Regex(searchT)
+                        if(regexTag3.containsMatchIn(tag3)) {
+                            listtt.add(title)
+                            continue
+                        }
+
+                        val tag4 = document.toObject(DataItems::class.java).tag4
+                        val regexTag4 = Regex(searchT)
+                        if(regexTag4.containsMatchIn(tag4)) {
+                            listtt.add(title)
+                            continue
+                        }
+
+                        val tag5 = document.toObject(DataItems::class.java).tag5
+                        val regexTag5 = Regex(searchT)
+                        if(regexTag5.containsMatchIn(tag5)) {
+                            listtt.add(title)
+                            continue
+                        }
+
                     }
                     listView.adapter = ArrayAdapter<String>(
                         this,

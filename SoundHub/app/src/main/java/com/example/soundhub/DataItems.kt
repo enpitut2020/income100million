@@ -6,5 +6,6 @@ data class DataItems (
     val tag2: String = "",
     val tag3: String = "",
     val tag4: String = "",
-    val tag5: String = ""
+    val tag5: String = "",
+    var itemId: String = ""
 )
