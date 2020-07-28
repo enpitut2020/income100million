@@ -10,157 +10,122 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_marginTop="16dp"
         >
 
-
-        <EditText
-            android:id="@+id/listTitleName"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:text="ListTitle"
-            android:textSize="20dp" />
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            app:startIconDrawable="@drawable/ic_title_white_24"
+            android:hint="@string/edit_playlist_title_hint"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeWidth="2dp">
 
-        <LinearLayout
-            android:id="@+id/tag1layout"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/listTitleName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            app:startIconDrawable="@drawable/ic_label_white_24"
+            android:hint="@string/edit_playlist_tag_1"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeWidth="2dp">
 
-            <TextView
-                android:id="@+id/tag1"
-                android:layout_width="50dp"
-                android:layout_height="16dp"
-                android:layout_marginLeft="16dp"
-                android:text="tag1: "/>
-
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tag1Name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:textSize="12dp"
-                android:text="hoge"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editPlaylistName"
-                app:layout_constraintTop_toTopOf="parent"/>
-        </LinearLayout>
+                android:inputType="text" />
 
-        <LinearLayout
-            android:id="@+id/tag2layout"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            app:startIconDrawable="@drawable/ic_label_white_24"
+            android:hint="@string/edit_playlist_tag_2"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeWidth="2dp">
 
-            <TextView
-                android:id="@+id/tag2"
-                android:layout_width="50dp"
-                android:layout_height="16dp"
-                android:layout_marginLeft="16dp"
-                android:text="tag2: "/>
-
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tag2Name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:textSize="12dp"
-                android:text="hoge"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editPlaylistName"
-                app:layout_constraintTop_toTopOf="parent"/>
-        </LinearLayout>
+                android:inputType="text" />
 
-        <LinearLayout
-            android:id="@+id/tag3layout"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            app:startIconDrawable="@drawable/ic_label_white_24"
+            android:hint="@string/edit_playlist_tag_3"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeWidth="2dp">
 
-            <TextView
-                android:id="@+id/tag3"
-                android:layout_width="50dp"
-                android:layout_height="16dp"
-                android:layout_marginLeft="16dp"
-                android:text="tag3: "/>
-
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tag3Name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:textSize="12dp"
-                android:text="hoge"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editPlaylistName"
-                app:layout_constraintTop_toTopOf="parent"/>
-        </LinearLayout>
+                android:inputType="text" />
 
-        <LinearLayout
-            android:id="@+id/tag4layout"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            app:startIconDrawable="@drawable/ic_label_white_24"
+            android:hint="@string/edit_playlist_tag_4"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeWidth="2dp">
 
-            <TextView
-                android:id="@+id/tag4"
-                android:layout_width="50dp"
-                android:layout_height="16dp"
-                android:layout_marginLeft="16dp"
-                android:text="tag4: "/>
-
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tag4Name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:textSize="12dp"
-                android:text="hoge"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editPlaylistName"
-                app:layout_constraintTop_toTopOf="parent"/>
-        </LinearLayout>
+                android:inputType="text" />
 
-        <LinearLayout
-            android:id="@+id/tag5layout"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginHorizontal="16dp"
+            app:startIconDrawable="@drawable/ic_label_white_24"
+            android:hint="@string/edit_playlist_tag_5"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeWidth="2dp">
 
-            <TextView
-                android:id="@+id/tag5"
-                android:layout_width="50dp"
-                android:layout_height="16dp"
-                android:layout_marginLeft="16dp"
-                android:text="tag5: "/>
-
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tag5Name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:textSize="12dp"
-                android:text="hoge"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editPlaylistName"
-                app:layout_constraintTop_toTopOf="parent"/>
-        </LinearLayout>
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <LinearLayout
             android:id="@+id/editForm"
@@ -179,6 +144,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
+                android:hint="@string/edit_playlist_song_hint"
                 app:layout_constraintEnd_toStartOf="@+id/AddList"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -190,7 +156,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
-                android:text="Add"
+                android:text="@string/edit_playlist_button_add"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/editPlaylistName"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -200,28 +166,13 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="songs" />
+            android:layout_marginTop="16dp"
+            android:text="@string/edit_playlist_added_songs" />
 
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
 
     </LinearLayout>
 
@@ -234,8 +185,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/oval_button"
-        android:elevation="4dp"
-        android:text="保存"
+        android:text="@string/edit_playlist_button_add"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
