@@ -28,16 +28,14 @@ class SearchActivity : AppCompatActivity() {
             show()
         }
 
-        /*
+
         //リストのアイテムがタップされたとき画面推移処理する
         val listI = findViewById<ListView>(R.id.listView_s)
         listI.setOnItemClickListener { parent, view, position, id ->
-            val intent = Intent(this, ListItem::class.java)
-            val item = parent.getItemAtPosition(position).toString()
-            intent.putExtra("position", item)
+            val intent = Intent(this, songsListActivity::class.java)
             startActivity(intent)
         }
-         */
+
 
         show()
     }

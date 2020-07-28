@@ -7,5 +7,5 @@ data class DataItems (
     val tag3: String = "",
     val tag4: String = "",
     val tag5: String = "",
-    var itemId: String = ""
+    val songAndArtist: List<String> = mutableListOf<String>()
 )
