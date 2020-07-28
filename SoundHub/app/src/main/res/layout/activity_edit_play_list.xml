@@ -161,7 +161,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
-                android:text="@string/edit_playlist_button_add"
+                android:text="@string/edit_playlist_button_save"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/editPlaylistName"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -191,7 +191,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/oval_button"
-        android:text="@string/edit_playlist_button_add"
+        android:text="@string/edit_playlist_button_save"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
