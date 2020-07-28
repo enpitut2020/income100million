@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.*
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SearchActivity : AppCompatActivity() {
     private var searchT = ""
+    private val db = FirebaseFirestore.getInstance().document("playLists/savePlayList")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +24,7 @@ class SearchActivity : AppCompatActivity() {
             show()
         }
 
+        /*
         //リストのアイテムがタップされたとき画面推移処理する
         val listI = findViewById<ListView>(R.id.listView_s)
         listI.setOnItemClickListener { parent, view, position, id ->
@@ -30,6 +33,7 @@ class SearchActivity : AppCompatActivity() {
             intent.putExtra("position", item)
             startActivity(intent)
         }
+         */
 
         show()
     }
