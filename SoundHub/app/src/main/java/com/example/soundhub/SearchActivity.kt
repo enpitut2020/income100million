@@ -129,6 +129,8 @@ class SearchActivity : AppCompatActivity() {
                         this,
                         R.layout.list_text_row, R.id.textView, listtt
                     )
+
+                    playListId = newSongsId
                 }
                 .addOnFailureListener { exception ->
                     Log.d(TAG, "Error getting documents: ", exception)
