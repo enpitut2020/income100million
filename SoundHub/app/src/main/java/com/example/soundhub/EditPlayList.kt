@@ -79,7 +79,7 @@ class EditPlayList : AppCompatActivity() {
         )
 
 
-        mDocRef.collection("playLists3")
+        mDocRef.collection("playLists")
             .add(saveMap)
             .addOnSuccessListener { documentReference ->
                 Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}\"")

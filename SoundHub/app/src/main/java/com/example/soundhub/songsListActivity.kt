@@ -25,7 +25,7 @@ class songsListActivity : AppCompatActivity() {
     private fun show(){
         val listView = findViewById<ListView>(R.id.songListN)
 
-        db.collection("playLists3").document(intent.getStringExtra("id").toString())
+        db.collection("playLists").document(intent.getStringExtra("id").toString())
             .get()
             .addOnSuccessListener { document ->
                 val songAndArtist = document.toObject(DataItems::class.java)?.songAndArtist

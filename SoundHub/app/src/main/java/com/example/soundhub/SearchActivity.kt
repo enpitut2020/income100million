@@ -49,7 +49,7 @@ class SearchActivity : AppCompatActivity() {
         val listView = findViewById<ListView>(R.id.listView_s)
 
         if(searchT.equals("")) {
-            db.collection("playLists3")
+            db.collection("playLists")
                 .orderBy("title", Query.Direction.DESCENDING)
                 .get()
                 .addOnSuccessListener { result ->
@@ -70,7 +70,7 @@ class SearchActivity : AppCompatActivity() {
                     Log.d(TAG, "Error getting documents: ", exception)
                 }
         }else{
-            db.collection("playLists3")
+            db.collection("playLists")
                 .get()
                 .addOnSuccessListener { result ->
                     val listtt = mutableListOf<String>()

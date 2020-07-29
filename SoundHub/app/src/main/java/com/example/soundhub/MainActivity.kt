@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         //最新のプレイリストを表示
         val listView = findViewById<ListView>(R.id.topList)
 
-        db.collection("playLists3")
+        db.collection("playLists")
             .orderBy("title", Query.Direction.DESCENDING)
             .limit(7)
             .get()
