@@ -40,6 +40,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent2)
         }
 
+        //リストのアイテムがタップされたら画面遷移
+        val listI = findViewById<ListView>(R.id.topList)
+        listI.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(this, songsListActivity::class.java)
+            intent.putExtra("id", playListId[position])
+            intent.putExtra("title", parent.getItemAtPosition(position).toString())
+            startActivity(intent)
+        }
+
+
         show()
     }
 
