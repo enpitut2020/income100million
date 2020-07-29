@@ -49,7 +49,9 @@
         <ListView
             android:id="@+id/listView_s"
             android:layout_width="match_parent"
-            android:layout_height="686dp" />
+            android:layout_height="686dp"
+            android:layout_marginTop="8dp"
+            android:divider="@null"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
