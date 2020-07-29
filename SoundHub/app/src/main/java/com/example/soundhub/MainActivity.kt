@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 class MainActivity : AppCompatActivity() {
 
@@ -72,9 +73,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun show() {
+        //最新のプレイリストを表示
         val listView = findViewById<ListView>(R.id.topList)
 
         db.collection("playLists3")
+            .orderBy("title", Query.Direction.DESCENDING)
+            .limit(7)
             .get()
             .addOnSuccessListener { result ->
                 val listtt = mutableListOf<String>()
