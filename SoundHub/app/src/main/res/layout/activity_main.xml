@@ -39,6 +39,21 @@
             android:layout_marginVertical="32dp"
             android:layout_gravity="center"
             android:src="@drawable/main_logo_mainactivity" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="最新のプレイリスト"
+            android:textSize="20dp"
+            android:textColor="#212121" />
+
+        <ListView
+            android:id="@+id/topList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"/>
     </LinearLayout>
 
 

@@ -9,6 +9,7 @@ import android.widget.ListView
 import android.widget.*
 import androidx.core.view.get
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 class SearchActivity : AppCompatActivity() {
     private var searchT = ""
@@ -49,6 +50,7 @@ class SearchActivity : AppCompatActivity() {
 
         if(searchT.equals("")) {
             db.collection("playLists3")
+                .orderBy("title", Query.Direction.DESCENDING)
                 .get()
                 .addOnSuccessListener { result ->
                     val listtt = mutableListOf<String>()
